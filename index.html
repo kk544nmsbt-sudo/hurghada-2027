@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Group holiday to JAZ Aquamarine, Hurghada, Egypt. Thursday 11 to Sunday 21 November 2027, 10 nights, all inclusive.">
+  <title>Hurghada 2027</title>
+  <style>
+    :root {
+      --ink: #16313a;
+      --muted: #4a626b;
+      --sand: #f6efe4;
+      --card: #fffaf3;
+      --line: #e4d6c3;
+      --sea: #0b5c6e;
+      --sea-dark: #073b4c;
+      --sea-mid: #187b82;
+      --sun: #f0b429;
+      --sun-soft: #fde9b0;
+      --coral: #c45c38;
+      --booked: #0f6b57;
+      --booked-bg: #e5f4ef;
+      --maybe: #8a5a12;
+      --maybe-bg: #f8ebd3;
+      --shadow: 0 1px 3px rgba(22, 49, 58, 0.07);
+      --radius: 16px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body { margin: 0; padding: 0; }
+
+    body {
+      font-family: "Segoe UI", system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
+      background:
+        radial-gradient(1200px 400px at 50% -80px, #fde9b0 0%, transparent 70%),
+        var(--sand);
+      color: var(--ink);
+      line-height: 1.55;
+      font-size: 1.125rem;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .page {
+      max-width: 40rem;
+      margin: 0 auto;
+      padding: 1.15rem 1rem 2.4rem;
+    }
+
+    header.hero {
+      background: linear-gradient(165deg, var(--sea-dark) 0%, var(--sea) 55%, var(--sea-mid) 100%);
+      color: #fffaf3;
+      padding: 1.45rem 1.2rem 1.3rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin-bottom: 1.15rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header.hero::after {
+      content: "";
+      position: absolute;
+      right: -1.2rem;
+      top: -1.2rem;
+      width: 6.2rem;
+      height: 6.2rem;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #ffe8a3, #f0b429 58%, #e0892a);
+      box-shadow: 0 0 0 10px rgba(240, 180, 41, 0.16);
+    }
+
+    header.hero h1 {
+      font-family: Georgia, "Palatino Linotype", Palatino, "Times New Roman", serif;
+      font-weight: 700;
+      font-size: clamp(1.9rem, 8vw, 2.45rem);
+      letter-spacing: 0.01em;
+      margin: 0 0 0.45rem;
+      line-height: 1.1;
+      position: relative;
+      z-index: 1;
+    }
+
+    header.hero .place,
+    header.hero .dates,
+    header.hero .stay,
+    header.hero .countdown {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      padding-right: 4.5rem;
+    }
+
+    header.hero .place {
+      font-size: 1.05rem;
+      color: #fde9b0;
+      margin-bottom: 0.55rem;
+    }
+
+    header.hero .dates {
+      font-weight: 650;
+      font-size: 1.08rem;
+    }
+
+    header.hero .stay {
+      color: #e8f3f4;
+      margin-top: 0.15rem;
+    }
+
+    header.hero .countdown {
+      display: inline-block;
+      margin-top: 0.85rem;
+      background: rgba(255, 250, 243, 0.14);
+      border: 1px solid rgba(255, 250, 243, 0.22);
+      border-radius: 999px;
+      padding: 0.28rem 0.75rem;
+      font-size: 1rem;
+      font-weight: 650;
+      color: #fff6d8;
+    }
+
+    h2 {
+      font-family: Georgia, "Palatino Linotype", Palatino, "Times New Roman", serif;
+      font-size: 1.4rem;
+      margin: 0 0 0.7rem;
+      color: var(--sea-dark);
+    }
+
+    section {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.05rem 1.05rem 1.1rem;
+      margin-bottom: 0.9rem;
+    }
+
+    p, li { overflow-wrap: anywhere; }
+
+    p { margin: 0 0 0.7rem; }
+    p:last-child { margin-bottom: 0; }
+
+    .party {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .party li {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.15rem 0.75rem;
+      padding: 0.75rem 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .party li:first-child { border-top: 0; padding-top: 0.15rem; }
+    .party li:last-child { padding-bottom: 0.1rem; }
+
+    .who {
+      font-weight: 700;
+      font-size: 1.12rem;
+    }
+
+    .note {
+      grid-column: 1 / -1;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .badge {
+      display: inline-block;
+      border-radius: 999px;
+      padding: 0.18rem 0.62rem;
+      font-size: 0.92rem;
+      font-weight: 700;
+      align-self: start;
+      white-space: nowrap;
+    }
+
+    .badge.booked {
+      background: var(--booked-bg);
+      color: var(--booked);
+    }
+
+    .badge.maybe {
+      background: var(--maybe-bg);
+      color: var(--maybe);
+    }
+
+    .flight {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 0.85rem 0.9rem;
+      background: #fffdf8;
+      margin-bottom: 0.7rem;
+    }
+
+    .flight:last-of-type { margin-bottom: 0.85rem; }
+
+    .flight .label {
+      font-size: 0.82rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--sea);
+      margin: 0 0 0.15rem;
+    }
+
+    .flight .code {
+      font-weight: 750;
+      font-size: 1.15rem;
+      margin: 0;
+    }
+
+    .flight .when {
+      color: var(--muted);
+      margin: 0 0 0.45rem;
+    }
+
+    .leg {
+      margin: 0;
+      padding: 0.12rem 0;
+    }
+
+    .leg .time {
+      font-weight: 700;
+    }
+
+    .arrow {
+      color: var(--sea);
+      font-weight: 700;
+      padding: 0.05rem 0 0.05rem 0;
+    }
+
+    .hint {
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    .facts {
+      list-style: none;
+      margin: 0 0 0.85rem;
+      padding: 0;
+    }
+
+    .facts li {
+      padding: 0.45rem 0 0.45rem 1.35rem;
+      position: relative;
+      border-top: 1px solid var(--line);
+    }
+
+    .facts li:first-child { border-top: 0; }
+
+    .facts li::before {
+      content: "";
+      width: 0.55rem;
+      height: 0.55rem;
+      border-radius: 50%;
+      background: var(--sea-mid);
+      position: absolute;
+      left: 0.15rem;
+      top: 0.85rem;
+    }
+
+    a {
+      color: var(--sea);
+      font-weight: 650;
+      text-decoration-thickness: 1.5px;
+      text-underline-offset: 0.15em;
+    }
+
+    a:focus-visible {
+      outline: 3px solid var(--sun);
+      outline-offset: 2px;
+      border-radius: 3px;
+    }
+
+    .offer {
+      background: linear-gradient(180deg, #fff6df, #fdeec8);
+      border: 1px solid #ead39a;
+      border-radius: 12px;
+      padding: 0.85rem 0.9rem;
+      margin: 0 0 0.8rem;
+    }
+
+    .offer p { margin: 0; }
+
+    .tiers {
+      list-style: none;
+      margin: 0.15rem 0 0;
+      padding: 0;
+    }
+
+    .tiers li {
+      padding: 0.38rem 0;
+      border-top: 1px solid #ead39a;
+      font-weight: 650;
+    }
+
+    .tiers li:first-child { border-top: 0; }
+
+    .checklist {
+      list-style: none;
+      margin: 0 0 0.75rem;
+      padding: 0;
+    }
+
+    .checklist li {
+      display: flex;
+      gap: 0.65rem;
+      align-items: flex-start;
+      padding: 0.55rem 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .checklist li:first-child { border-top: 0; padding-top: 0.1rem; }
+
+    .box {
+      flex: 0 0 1.25rem;
+      width: 1.25rem;
+      height: 1.25rem;
+      margin-top: 0.22rem;
+      border: 2px solid var(--sea);
+      border-radius: 4px;
+      background: #fff;
+    }
+
+    .tips {
+      margin: 0;
+      padding: 0 0 0 1.15rem;
+    }
+
+    .tips li {
+      margin: 0 0 0.65rem;
+      padding-left: 0.15rem;
+    }
+
+    .tips li:last-child { margin-bottom: 0; }
+
+    .links {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .links li {
+      border-top: 1px solid var(--line);
+      padding: 0.7rem 0;
+    }
+
+    .links li:first-child { border-top: 0; padding-top: 0.1rem; }
+    .links li:last-child { padding-bottom: 0.1rem; }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 1rem;
+      padding: 0.4rem 0.5rem 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <h1>Hurghada 2027</h1>
+      <p class="place">JAZ Aquamarine, Hurghada, Egypt</p>
+      <p class="dates">Thu 11 – Sun 21 November 2027</p>
+      <p class="stay">10 nights, all inclusive</p>
+      <p class="countdown" id="countdown">11 November 2027</p>
+    </header>
+
+    <section>
+      <h2>Who’s going</h2>
+      <ul class="party">
+        <li>
+          <div class="who">Rich &amp; Liz</div>
+          <span class="badge booked">Booked</span>
+          <div class="note">Flying from Gatwick</div>
+        </li>
+        <li>
+          <div class="who">Hughie &amp; Katrina</div>
+          <span class="badge booked">Booked</span>
+          <div class="note">Details to follow</div>
+        </li>
+        <li>
+          <div class="who">Two friends</div>
+          <span class="badge maybe">Maybe</span>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Flights</h2>
+      <p>Rich &amp; Liz are flying with easyJet.</p>
+
+      <div class="flight">
+        <p class="label">Outbound</p>
+        <p class="code">EZY8745</p>
+        <p class="when">Thu 11 November 2027</p>
+        <p class="leg"><span class="time">Gatwick 09:20</span> UK time</p>
+        <p class="arrow" aria-hidden="true">↓</p>
+        <p class="leg"><span class="time">Hurghada 16:45</span> Egypt time</p>
+      </div>
+
+      <div class="flight">
+        <p class="label">Return</p>
+        <p class="code">EZY8746</p>
+        <p class="when">Sun 21 November 2027</p>
+        <p class="leg"><span class="time">Hurghada 20:30</span> Egypt time</p>
+        <p class="arrow" aria-hidden="true">↓</p>
+        <p class="leg"><span class="time">Gatwick 00:30</span> UK time, Mon 22 November</p>
+      </div>
+
+      <p class="hint">Egypt is 2 hours ahead of the UK in November. easyJet mostly uses Gatwick North Terminal, but check your boarding pass. The free inter-terminal shuttle takes a couple of minutes.</p>
+    </section>
+
+    <section>
+      <h2>Hotel</h2>
+      <ul class="facts">
+        <li>JAZ Aquamarine, Hurghada</li>
+        <li>All inclusive</li>
+        <li>Shared transfer included in easyJet holidays packages</li>
+        <li>Checkout is 12:00 on the last day. Reception can store cases until the transfer.</li>
+      </ul>
+      <p><a href="https://www.jazhotels.com/hoteldetail/25-egypt-hurghada-jaz-aquamarine" rel="noopener noreferrer">Hotel website</a></p>
+    </section>
+
+    <section>
+      <h2>Thinking of booking?</h2>
+      <div class="offer">
+        <p>easyJet holidays code <strong>BLKFRIDAY</strong></p>
+        <ul class="tiers">
+          <li>£50 off £500+</li>
+          <li>£100 off £800+</li>
+          <li>£200 off £2,000+</li>
+          <li>£400 off £4,000+</li>
+        </ul>
+      </div>
+      <p>For new bookings, entered on the extras page, before 11pm UK time on Tuesday 1 December 2026. One code per booking. The offer may be withdrawn.</p>
+    </section>
+
+    <section>
+      <h2>Checklist</h2>
+      <ul class="checklist">
+        <li><span class="box" aria-hidden="true"></span><span>Book the holiday</span></li>
+        <li><span class="box" aria-hidden="true"></span><span>Choose seats (extra legroom goes quickly)</span></li>
+        <li><span class="box" aria-hidden="true"></span><span>Request rooms with the hotel</span></li>
+        <li><span class="box" aria-hidden="true"></span><span>Pay the balance (check your own booking for the due date)</span></li>
+        <li><span class="box" aria-hidden="true"></span><span>Online check-in (opens 30 days before departure)</span></li>
+        <li><span class="box" aria-hidden="true"></span><span>Check passports and Egypt entry rules</span></li>
+        <li><span class="box" aria-hidden="true"></span><span>Travel insurance</span></li>
+        <li><span class="box" aria-hidden="true"></span><span>Get an eSIM for data</span></li>
+      </ul>
+      <p class="hint">As of 14 November 2026, Rich &amp; Liz and Hughie &amp; Katrina have booked. Tick things off against your own booking, as due dates can differ.</p>
+    </section>
+
+    <section>
+      <h2>Tips from last time</h2>
+      <ul class="tips">
+        <li>No jeans or jacket needed in November.</li>
+        <li>easyJet cabin bags: the free under-seat bag can be up to 45×36×20 cm. A large cabin bag can be up to 56×45×25 cm, with a 15 kg weight limit.</li>
+        <li>In extra-legroom or exit rows, bags go in the overhead lockers for take-off and landing.</li>
+        <li>Try the Luxor Sands drink at the hotel.</li>
+        <li>Che Guevara bar at Hurghada Marina is worth a visit.</li>
+        <li>Buy duty-free chocolate at Hurghada Airport on the way home.</li>
+        <li>A cheap eSIM is handy, for example Saily at about £2.39 a day for unlimited data, or Nomad 1 GB for 7 days at US$6.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Useful links</h2>
+      <ul class="links">
+        <li><a href="https://www.gov.uk/foreign-travel-advice/egypt/entry-requirements" rel="noopener noreferrer">GOV.UK Egypt entry requirements</a></li>
+        <li><a href="https://www.easyjet.com/en/holidays" rel="noopener noreferrer">easyJet holidays</a></li>
+        <li><a href="https://www.jazhotels.com/hoteldetail/25-egypt-hurghada-jaz-aquamarine" rel="noopener noreferrer">JAZ Aquamarine</a></li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>Last updated 14 November 2026</p>
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      var el = document.getElementById('countdown');
+      if (!el) return;
+
+      function londonDay(date) {
+        var parts = new Intl.DateTimeFormat('en-GB', {
+          timeZone: 'Europe/London',
+          year: 'numeric',
+          month: '2-digit',
+          day: '2-digit'
+        }).formatToParts(date);
+        var map = {};
+        parts.forEach(function (part) { map[part.type] = part.value; });
+        return Date.UTC(Number(map.year), Number(map.month) - 1, Number(map.day));
+      }
+
+      var days = Math.round((Date.UTC(2027, 10, 11) - londonDay(new Date())) / 86400000);
+
+      if (days > 1) el.textContent = days.toLocaleString('en-GB') + ' days to go';
+      else if (days === 1) el.textContent = '1 day to go';
+      else if (days === 0) el.textContent = 'It’s today — enjoy the holiday';
+      else el.textContent = 'Hope you had a lovely trip';
+    })();
+  </script>
+</body>
+</html>
