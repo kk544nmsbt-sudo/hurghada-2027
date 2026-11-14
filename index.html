@@ -359,6 +359,19 @@
       font-size: 1rem;
       padding: 0.4rem 0.5rem 0;
     }
+
+    .converter { display: grid; gap: 0.6rem; }
+    .converter .row { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .converter input, .converter select {
+      font: inherit; font-size: 1.05rem; padding: 0.55rem 0.6rem;
+      border: 1px solid var(--line); border-radius: 8px; background: #fff;
+      flex: 1 1 8rem; min-width: 0;
+    }
+    .converter .result { font-size: 1.35rem; font-weight: 700; color: var(--sea); margin: 0.2rem 0 0; }
+    .converter .swap {
+      font: inherit; padding: 0.45rem 0.8rem; border: 1px solid var(--sea);
+      color: var(--sea); background: #fff; border-radius: 8px; cursor: pointer; justify-self: start;
+    }
   </style>
 </head>
 <body>
@@ -472,6 +485,32 @@
     </section>
 
     <section>
+      <h2>Currency converter</h2>
+      <div class="converter">
+        <div class="row">
+          <input id="cc-amount" type="number" inputmode="decimal" min="0" step="any" value="100" aria-label="Amount">
+          <select id="cc-from" aria-label="From">
+            <option value="EGP">Egyptian pounds (E£)</option>
+            <option value="USD">US dollars ($)</option>
+            <option value="GBP">UK pounds (£)</option>
+            <option value="EUR">Euros (€)</option>
+          </select>
+        </div>
+        <div class="row">
+          <select id="cc-to" aria-label="To">
+            <option value="EGP">Egyptian pounds (E£)</option>
+            <option value="USD">US dollars ($)</option>
+            <option value="GBP">UK pounds (£)</option>
+            <option value="EUR">Euros (€)</option>
+          </select>
+        </div>
+        <button type="button" class="swap" id="cc-swap">Swap ⇅</button>
+        <p class="result" id="cc-result"></p>
+        <p class="hint" id="cc-note">Using live exchange rates. Shops and airport tills often give a worse rate.</p>
+      </div>
+    </section>
+
+    <section>
       <h2>Useful links</h2>
       <ul class="links">
         <li><a href="https://www.gov.uk/foreign-travel-advice/egypt/entry-requirements" rel="noopener noreferrer">GOV.UK Egypt entry requirements</a></li>
@@ -508,6 +547,39 @@
       else if (days === 1) el.textContent = '1 day to go';
       else if (days === 0) el.textContent = 'It’s today — enjoy the holiday';
       else el.textContent = 'Hope you had a lovely trip';
+    })();
+  </script>
+
+  <script>
+    (function () {
+      var rates = { EGP: 1, USD: 0.018714, GBP: 0.01415, EUR: 0.01695 };
+      var sym = { EGP: 'E£', USD: '$', GBP: '£', EUR: '€' };
+      var amt = document.getElementById('cc-amount');
+      var from = document.getElementById('cc-from');
+      var to = document.getElementById('cc-to');
+      var out = document.getElementById('cc-result');
+      var note = document.getElementById('cc-note');
+      from.value = 'EGP'; to.value = 'GBP';
+      function calc() {
+        var a = parseFloat(amt.value);
+        if (isNaN(a)) { out.textContent = ''; return; }
+        var v = a / rates[from.value] * rates[to.value];
+        out.textContent = sym[from.value] + a.toLocaleString('en-GB', {maximumFractionDigits: 2}) + ' = ' + sym[to.value] + v.toLocaleString('en-GB', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+      }
+      [amt, from, to].forEach(function (e) { e.addEventListener('input', calc); e.addEventListener('change', calc); });
+      document.getElementById('cc-swap').addEventListener('click', function () {
+        var t = from.value; from.value = to.value; to.value = t; calc();
+      });
+      calc();
+      fetch('https://open.er-api.com/v6/latest/EGP').then(function (r) { return r.json(); }).then(function (d) {
+        if (!d || !d.rates) return;
+        ['USD', 'GBP', 'EUR'].forEach(function (k) { if (d.rates[k]) rates[k] = d.rates[k]; });
+        var when = d.time_last_update_unix ? new Date(d.time_last_update_unix * 1000).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) : '';
+        note.textContent = 'Live rates' + (when ? ', updated ' + when : '') + '. Shops and airport tills often give a worse rate.';
+        calc();
+      }).catch(function () {
+        note.textContent = 'Couldn’t load live rates, so this uses rates from 14 November 2026. Shops and airport tills often give a worse rate.';
+      });
     })();
   </script>
 </body>
