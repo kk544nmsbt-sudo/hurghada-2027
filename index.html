@@ -376,6 +376,88 @@
     .share { margin: 0.8rem auto 0; text-align: center; }
     .share img { display: block; margin: 0 auto; }
     .share p { margin: 0.2rem 0 0; font-size: 0.85rem; }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.55rem;
+      margin: 0.85rem 0 0.55rem;
+    }
+
+    .gallery figure {
+      margin: 0;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .gallery img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 3 / 2;
+      object-fit: cover;
+    }
+
+    .gallery figcaption {
+      font-size: 0.92rem;
+      color: var(--muted);
+      padding: 0.35rem 0.55rem 0.45rem;
+    }
+
+    .badge.actual {
+      background: var(--booked-bg);
+      color: var(--booked);
+    }
+
+    .badge.forecast {
+      background: var(--maybe-bg);
+      color: var(--maybe);
+    }
+
+    .weather-list {
+      list-style: none;
+      margin: 0 0 0.75rem;
+      padding: 0;
+    }
+
+    .weather-list li {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.1rem 0.75rem;
+      padding: 0.65rem 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .weather-list li:first-child { border-top: 0; padding-top: 0.1rem; }
+    .weather-list li:last-child { padding-bottom: 0.1rem; }
+
+    .w-day {
+      font-weight: 700;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .w-temp {
+      font-weight: 700;
+      color: var(--sea-dark);
+      white-space: nowrap;
+    }
+
+    .w-meta {
+      grid-column: 1 / -1;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .credit {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin: 0;
+    }
   </style>
 </head>
 <body>
@@ -441,6 +523,25 @@
         <li>Shared transfer included in easyJet holidays packages</li>
         <li>Checkout is 12:00 on the last day. Reception can store cases until the transfer.</li>
       </ul>
+      <div class="gallery">
+        <figure>
+          <img src="photos/hotel-front.jpg" alt="The front entrance of JAZ Aquamarine" width="1400" height="817" loading="lazy">
+          <figcaption>Hotel front</figcaption>
+        </figure>
+        <figure>
+          <img src="photos/pool.jpg" alt="The main swimming pool at JAZ Aquamarine, looking towards the sea" width="1400" height="853" loading="lazy">
+          <figcaption>Pool view</figcaption>
+        </figure>
+        <figure>
+          <img src="photos/room.jpg" alt="A twin guest room at JAZ Aquamarine, with a balcony looking over the pool" width="1400" height="889" loading="lazy">
+          <figcaption>Room view</figcaption>
+        </figure>
+        <figure>
+          <img src="photos/beach.jpg" alt="The beach at JAZ Aquamarine, with palapas, sun loungers and the Red Sea" width="1400" height="933" loading="lazy">
+          <figcaption>Beach view</figcaption>
+        </figure>
+      </div>
+      <p class="hint">Photos: JAZ Hotels</p>
       <p><a href="https://www.jazhotels.com/hoteldetail/25-egypt-hurghada-jaz-aquamarine" rel="noopener noreferrer">Hotel website</a></p>
     </section>
 
@@ -491,6 +592,70 @@
     </section>
 
     <section>
+      <h2>What the weather was like: November 2026</h2>
+      <p>This is Hurghada’s weather from 11 to 21 November 2026, as a guide for the same dates in 2027. Days marked Forecast are predictions.</p>
+      <p>Daytime highs were typically 25–28°C, with nights around 18–22°C. It was mostly sunny, and the sea was about 24–25°C.</p>
+      <ul class="weather-list">
+        <li>
+          <div class="w-day">Wed 11 Nov <span class="badge actual">Actual</span></div>
+          <div class="w-temp">25° / 17.8°C</div>
+          <div class="w-meta">Sunny · Wind 24.5 km/h · Sea 24.8°C</div>
+        </li>
+        <li>
+          <div class="w-day">Thu 12 Nov <span class="badge actual">Actual</span></div>
+          <div class="w-temp">25.5° / 18.9°C</div>
+          <div class="w-meta">Partly cloudy · Wind 21.3 km/h · Sea 24.6°C</div>
+        </li>
+        <li>
+          <div class="w-day">Fri 13 Nov <span class="badge actual">Actual</span></div>
+          <div class="w-temp">26.6° / 19.8°C</div>
+          <div class="w-meta">Sunny · Wind 15.3 km/h · Sea 24.7°C</div>
+        </li>
+        <li>
+          <div class="w-day">Sat 14 Nov <span class="badge actual">Actual</span></div>
+          <div class="w-temp">27.5° / 20°C</div>
+          <div class="w-meta">Sunny · Wind 16 km/h · Sea 24.9°C</div>
+        </li>
+        <li>
+          <div class="w-day">Sun 15 Nov <span class="badge actual">Actual</span></div>
+          <div class="w-temp">27.3° / 21.3°C</div>
+          <div class="w-meta">Sunny · Wind 21.6 km/h · Sea 25.2°C</div>
+        </li>
+        <li>
+          <div class="w-day">Mon 16 Nov <span class="badge actual">Actual</span></div>
+          <div class="w-temp">26.9° / 20.8°C</div>
+          <div class="w-meta">Mainly sunny · Wind 19.9 km/h · Sea 25.3°C</div>
+        </li>
+        <li>
+          <div class="w-day">Tue 17 Nov <span class="badge forecast">Forecast</span></div>
+          <div class="w-temp">26.8° / 21.3°C</div>
+          <div class="w-meta">Sunny · Wind 24.3 km/h · Sea 25.2°C</div>
+        </li>
+        <li>
+          <div class="w-day">Wed 18 Nov <span class="badge forecast">Forecast</span></div>
+          <div class="w-temp">24.7° / 20°C</div>
+          <div class="w-meta">Sunny · Wind 24.6 km/h · Sea 25°C</div>
+        </li>
+        <li>
+          <div class="w-day">Thu 19 Nov <span class="badge forecast">Forecast</span></div>
+          <div class="w-temp">25.6° / 20.1°C</div>
+          <div class="w-meta">Sunny · Wind 19.9 km/h · Sea 24.7°C</div>
+        </li>
+        <li>
+          <div class="w-day">Fri 20 Nov <span class="badge forecast">Forecast</span></div>
+          <div class="w-temp">26.4° / 20.5°C</div>
+          <div class="w-meta">Sunny · Wind 17.3 km/h · Sea 24.5°C</div>
+        </li>
+        <li>
+          <div class="w-day">Sat 21 Nov <span class="badge forecast">Forecast</span></div>
+          <div class="w-temp">27.4° / 21.6°C</div>
+          <div class="w-meta">Sunny · Wind 15.8 km/h · Sea 24.4°C</div>
+        </li>
+      </ul>
+      <p class="credit">Weather data: <a href="https://open-meteo.com/" rel="noopener noreferrer">Open-Meteo</a></p>
+    </section>
+
+    <section>
       <h2>Currency converter</h2>
       <div class="converter">
         <div class="row">
@@ -526,7 +691,7 @@
     </section>
 
     <footer>
-      <p>Last updated 14 November 2026</p>
+      <p>Last updated 17 November 2026</p>
       <div class="share"><img src="qr.png" alt="QR code for this page" width="90" height="105" loading="lazy"><p>Scan to share this page</p></div>
       <p class="visits"><img src="https://hits.sh/kk544nmsbt-sudo.github.io/hurghada-2027.svg?label=Visits&amp;color=0f6b57&amp;labelColor=555555" alt="Visit count" height="24" loading="lazy" referrerpolicy="no-referrer"></p>
     </footer>
